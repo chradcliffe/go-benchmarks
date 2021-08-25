@@ -16,8 +16,8 @@ func init() {
 func writeByAppend(input []byte) []byte {
 	numElem := len(input)
 	output := make([]byte, 0, numElem)
-	for i := 0; i < numElem; i++ {
-		output = append(output, input[i])
+	for _, v := range input {
+		output = append(output, v)
 	}
 	return output
 }
@@ -27,6 +27,14 @@ func writeByIndex(input []byte) []byte {
 	output := make([]byte, numElem)
 	for i := 0; i < numElem; i++ {
 		output[i] = input[i]	
+	}
+	return output
+}
+
+func writeByAppendNoPreallocation(input []byte) []byte {
+	output := []byte{}
+	for _, v := range input {
+		output = append(output, v)
 	}
 	return output
 }
@@ -74,6 +82,28 @@ func BenchmarkWriteByAppend_1000(b *testing.B) { benchmarkWriteByAppend(1000, b)
 func BenchmarkWriteByAppend_10000(b *testing.B) { benchmarkWriteByAppend(10000, b) }
 func BenchmarkWriteByAppend_100000(b *testing.B) { benchmarkWriteByAppend(100000, b) }
 func BenchmarkWriteByAppend_1000000(b *testing.B) { benchmarkWriteByAppend(1000000, b) }
+
+func benchmarkWriteByAppendNoPreallocation(numElem int, b *testing.B) {
+	input := make([]byte, numElem)
+	var output []byte
+
+	_, err := rand.Read(input)
+	if err != nil {
+		panic(fmt.Sprintf("%v", err))
+	}
+
+	b.ResetTimer()
+	for n := 0; n < b.N; n++ {
+                output = writeByAppendNoPreallocation(input)
+        }
+	result = output
+}
+
+func BenchmarkWriteByAppendNoPreallocation_100(b *testing.B) { benchmarkWriteByAppendNoPreallocation(100, b) }
+func BenchmarkWriteByAppendNoPreallocation_1000(b *testing.B) { benchmarkWriteByAppendNoPreallocation(1000, b) }
+func BenchmarkWriteByAppendNoPreallocation_10000(b *testing.B) { benchmarkWriteByAppendNoPreallocation(10000, b) }
+func BenchmarkWriteByAppendNoPreallocation_100000(b *testing.B) { benchmarkWriteByAppendNoPreallocation(100000, b) }
+func BenchmarkWriteByAppendNoPreallocation_1000000(b *testing.B) { benchmarkWriteByAppendNoPreallocation(1000000, b) }
 
 func benchmarkWriteByIndex(numElem int, b *testing.B) {
 	input := make([]byte, numElem)

@@ -2,25 +2,30 @@ goos: darwin
 goarch: amd64
 pkg: github.com/chradcliffe/go-benchmarks/bulk_array_operations
 cpu: Intel(R) Core(TM) i9-9980HK CPU @ 2.40GHz
-BenchmarkWriteByAppend_100-16                     	14503113	        80.50 ns/op
-BenchmarkWriteByAppend_1000-16                    	 1956000	       585.9 ns/op
-BenchmarkWriteByAppend_10000-16                   	  204543	      5555 ns/op
-BenchmarkWriteByAppend_100000-16                  	   22165	     55153 ns/op
-BenchmarkWriteByAppend_1000000-16                 	    2114	    526566 ns/op
-BenchmarkWriteByIndex_100-16                      	19155770	        60.73 ns/op
-BenchmarkWriteByIndex_1000-16                     	 2880170	       418.0 ns/op
-BenchmarkWriteByIndex_10000-16                    	  272280	      4369 ns/op
-BenchmarkWriteByIndex_100000-16                   	   28564	     41374 ns/op
-BenchmarkWriteByIndex_1000000-16                  	    2760	    402663 ns/op
-BenchmarkWriteByIndexEstimatedSize_100-16         	 9970852	       119.8 ns/op
-BenchmarkWriteByIndexEstimatedSize_1000-16        	 1401582	       851.0 ns/op
-BenchmarkWriteByIndexEstimatedSize_10000-16       	  126697	      8922 ns/op
-BenchmarkWriteByIndexEstimatedSize_100000-16      	   14488	     83315 ns/op
-BenchmarkWriteByIndexEstimatedSize_1000000-16     	    1452	    782354 ns/op
-BenchmarkWriteByAppendEstimatedSize_100-16        	10002160	       120.9 ns/op
-BenchmarkWriteByAppendEstimatedSize_1000-16       	 1480551	       802.8 ns/op
-BenchmarkWriteByAppendEstimatedSize_10000-16      	  145243	      8685 ns/op
-BenchmarkWriteByAppendEstimatedSize_100000-16     	   15370	     76830 ns/op
-BenchmarkWriteByAppendEstimatedSize_1000000-16    	    1657	    689322 ns/op
+BenchmarkWriteByAppend_100-16                       	10807366	       101.9 ns/op
+BenchmarkWriteByAppend_1000-16                      	 1980483	       605.8 ns/op
+BenchmarkWriteByAppend_10000-16                     	  212222	      5545 ns/op
+BenchmarkWriteByAppend_100000-16                    	   22198	     55209 ns/op
+BenchmarkWriteByAppend_1000000-16                   	    1942	    518897 ns/op
+BenchmarkWriteByAppendNoPreallocation_100-16        	 6317880	       190.4 ns/op
+BenchmarkWriteByAppendNoPreallocation_1000-16       	 1234759	       941.1 ns/op
+BenchmarkWriteByAppendNoPreallocation_10000-16      	   96934	     11878 ns/op
+BenchmarkWriteByAppendNoPreallocation_100000-16     	   10000	    106999 ns/op
+BenchmarkWriteByAppendNoPreallocation_1000000-16    	    1092	   1090830 ns/op
+BenchmarkWriteByIndex_100-16                        	17994579	        62.74 ns/op
+BenchmarkWriteByIndex_1000-16                       	 2820044	       418.3 ns/op
+BenchmarkWriteByIndex_10000-16                      	  270832	      4168 ns/op
+BenchmarkWriteByIndex_100000-16                     	   28698	     41899 ns/op
+BenchmarkWriteByIndex_1000000-16                    	    2840	    391915 ns/op
+BenchmarkWriteByIndexEstimatedSize_100-16           	 9751784	       123.3 ns/op
+BenchmarkWriteByIndexEstimatedSize_1000-16          	 1433252	       840.0 ns/op
+BenchmarkWriteByIndexEstimatedSize_10000-16         	  138138	      8900 ns/op
+BenchmarkWriteByIndexEstimatedSize_100000-16        	   14139	     84122 ns/op
+BenchmarkWriteByIndexEstimatedSize_1000000-16       	    1464	    790873 ns/op
+BenchmarkWriteByAppendEstimatedSize_100-16          	 9850586	       123.7 ns/op
+BenchmarkWriteByAppendEstimatedSize_1000-16         	 1427154	       868.6 ns/op
+BenchmarkWriteByAppendEstimatedSize_10000-16        	  127749	      8895 ns/op
+BenchmarkWriteByAppendEstimatedSize_100000-16       	   14264	     83694 ns/op
+BenchmarkWriteByAppendEstimatedSize_1000000-16      	    1546	    770631 ns/op
 PASS
-ok  	github.com/chradcliffe/go-benchmarks/bulk_array_operations	29.905s
+ok  	github.com/chradcliffe/go-benchmarks/bulk_array_operations	37.492s
